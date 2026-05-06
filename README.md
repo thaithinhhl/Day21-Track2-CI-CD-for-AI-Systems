@@ -3,15 +3,13 @@
 Khoa: AIInAction - VinUni
 Buổi: Day 21 - CI/CD cho AI Systems
 
-Thời gian ước tính: 8-10 giờ
 Trình độ: Trung cấp
-Công nghệ: Python, scikit-learn, MLflow, DVC, Cloud Object Storage (GCP/AWS/Azure), GitHub Actions, FastAPI, Cloud VM
 
 ---
 
 ## Mục Tiêu Học Tập
 
-Sau khi hoàn thành lab này, sinh viên có khả năng:
+Sau khi hoàn thành lab này, bạn có khả năng:
 
 1. Thiết lập quá trình theo dõi thí nghiệm máy học bằng MLflow trên máy tính cá nhân.
 2. Quản lý và phiên bản hóa dữ liệu bằng DVC với cloud object storage (GCP / AWS / Azure) làm remote.
@@ -232,7 +230,7 @@ Bắt đầu từ [Bước 1](tasks/buoc-1.md).
 |---|---|---|
 | Bước 1 - MLflow tracking | MLflow UI hiển thị ít nhất 3 lần chạy với các siêu tham số khác nhau | 12 |
 | Bước 1 - Độ đo | Mỗi lần chạy ghi nhận đủ cả `accuracy` và `f1_score` | 8 |
-| Bước 1 - Phân tích | Sinh viên xác định và giải thích bộ siêu tham số tốt nhất | 4 |
+| Bước 1 - Phân tích | Xác định và giải thích bộ siêu tham số tốt nhất | 4 |
 | Bước 2 - DVC | Remote đã cấu hình, `dvc push` thành công, dữ liệu hiển thị trên cloud storage | 12 |
 | Bước 2 - CI/CD | Cả ba GitHub Actions jobs (Test, Train, Deploy) đều qua (màu xanh) | 16 |
 | Bước 2 - Eval gate | Deploy job tự động bị chặn khi accuracy dưới ngưỡng 0.70 | 4 |
@@ -251,7 +249,7 @@ Bắt đầu từ [Bước 1](tasks/buoc-1.md).
 
 ### Hướng dẫn nộp bài
 
-Sinh viên nộp các hạng mục sau:
+Nộp các hạng mục sau:
 
 1. URL repo GitHub công khai chứa toàn bộ code và cấu hình.
 2. Chuỗi chụp màn hình theo thứ tự:
