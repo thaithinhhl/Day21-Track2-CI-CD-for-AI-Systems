@@ -1,0 +1,5 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = gs://cicd-vinlab/data
+    credentialpath = ../sa-key.json
