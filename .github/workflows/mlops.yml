@@ -37,9 +37,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Authenticate to Cloud Storage
+        env:
+          SA_KEY: ${{ secrets.CLOUD_CREDENTIALS }}
         run: |
-          echo '${{ secrets.CLOUD_CREDENTIALS }}' > /tmp/sa-key.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa-key.json" >> $GITHUB_ENV
+          echo "$SA_KEY" > sa-key.json
+          echo "$SA_KEY" > ../sa-key.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sa-key.json" >> $GITHUB_ENV
       - name: Pull data with DVC
         run: dvc pull -r storage
       - name: Train model
