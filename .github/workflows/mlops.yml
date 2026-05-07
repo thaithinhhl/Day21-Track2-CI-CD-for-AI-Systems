@@ -37,12 +37,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Authenticate to Cloud Storage
-        env:
-          SA_KEY: ${{ secrets.CLOUD_CREDENTIALS }}
         run: |
-          echo "$SA_KEY" > sa-key.json
-          echo "$SA_KEY" > ../sa-key.json
+          cat << 'EOF' > sa-key.json
+          ${{ secrets.CLOUD_CREDENTIALS }}
+          EOF
+          cp sa-key.json ../sa-key.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sa-key.json" >> $GITHUB_ENV
+      - name: Debug Credentials File
+        run: |
+          echo "Kích thước file sa-key.json:"
+          wc -c sa-key.json
+          if [ ! -s sa-key.json ]; then echo "LỖI: File sa-key.json trống rỗng! Secret CLOUD_CREDENTIALS chưa được truyền vào đúng cách."; exit 1; fi
       - name: Pull data with DVC
         run: dvc pull -r storage
       - name: Train model
